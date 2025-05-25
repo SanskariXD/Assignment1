@@ -33,4 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         });
     }
+
+    if (thankYouMessage) {
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        if (closeModalBtn) {
+            closeModalBtn.onclick = function () {
+                thankYouMessage.style.opacity = '0';
+                thankYouMessage.style.pointerEvents = 'none';
+            };
+        }
+    }
 });
