@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amity Dabha - Add Menu Item</title>
+    <title>Amity Dhaba - Add Menu Item</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,6 @@
                 <li><a href="landing.html#about">About Us</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="add_item.html" class="active">Add Item</a></li>
-
             </ul>
         </nav>
     </header>
@@ -27,98 +26,98 @@
         <div class="container">
             <div class="admin-header">
                 <h2>Add New Menu Item</h2>
-                <p>Add new item to Dhaba's menu</p>
+                <p>Add a new item to Dhaba's menu. Fill all details for best results!</p>
             </div>
-            
             <div class="add-item-container">
-                <form class="add-item-form">
+                <form class="add-item-form" id="addItemForm" autocomplete="off">
                     <div class="form-group">
                         <label for="item-name">Item Name</label>
-                        <input type="text" id="item-name" name="item-name" required>
+                        <input type="text" id="item-name" name="item-name" required maxlength="40" placeholder="e.g. Masala Dosa">
                     </div>
-                    
                     <div class="form-group">
                         <label for="item-category">Category</label>
-                        <select id="item-category" name="item-category" required>
-                            <option value="">Select a category</option>
-                            <option value="coffee">Coffee & Beverages</option>
-                            <option value="breakfast">Breakfast & Brunch</option>
-                            <option value="lunch">Lunch & Snacks</option>
-                            <option value="dessert">Desserts</option>
-                        </select>
+                        <div class="category-select">
+                            <span class="category-icon" id="categoryIcon">☕</span>
+                            <select id="item-category" name="item-category" required>
+                                <option value="">Select a category</option>
+                                <option value="coffee">☕ Coffee & Beverages</option>
+                                <option value="breakfast">🍳 Breakfast & Brunch</option>
+                                <option value="lunch">🍛 Lunch & Snacks</option>
+                                <option value="dessert">🍨 Desserts</option>
+                            </select>
+                        </div>
                     </div>
-                    
                     <div class="form-group">
                         <label for="item-description">Description</label>
-                        <textarea id="item-description" name="item-description" rows="3" required></textarea>
+                        <textarea id="item-description" name="item-description" rows="3" required maxlength="120" placeholder="Short description of the item"></textarea>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="item-price">Price (Try to keep it fair)</label>
-                        <input type="number" id="item-price" name="item-price" step="0.01" min="0" placeholder="0.00" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="item-image">Image og Food</label>
-                        <input type="file" id="item-image" name="item-image" accept="image/*">
-                    </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="item-veg" name="item-veg">
-                            <span class="checkmark"></span>
-                            Veg
+                        <label for="item-price">Price (₹)</label>
+                        <input type="number" id="item-price" name="item-price" step="1" min="0" max="999" placeholder="e.g. 45" required>
+OB                    </div>
+OB                    <div class="form-group image-upload-group">
+OBOBOBOB                        <div>
+OB                            <label for="item-image">Image of Food</label>
+                            <input type="file" id="item-image" name="item-image" accept="image/*">
+OBOB                        </div>
+OBOBOB                        <img id="imagePreview" class="image-preview" alt="Preview">
+OBOB                    </div>
+OB                    <div class="form-group toggle-switch">
+                        <span class="veg-label">Veg</span>
+                        <label class="switch">
+                            <input type="checkbox" id="vegSwitch" checked>
+                            <span class="slider"></span>
                         </label>
-                        
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="item-non-veg" name="item-non-veg">
-                            <span class="checkmark"></span>
-                            Non-Veg
-                        </label>
+                        <span class="nonveg-label">Non-Veg</span>
                     </div>
-                        
-                    
                     <div class="form-group">
-                        <label for="item-availability">Availability</label>
-                        <select id="item-availability" name="item-availability" required>
-                            <option value="always">Always Available</option>
-                            <option value="limited">Limited Time</option>
-                        </select>
-                    </div>
-                    
+OBOBOBOBOB                        <label for="item-availability">Availability</label>
+OBOB                        <select id="item-availability" name="item-availability" required>
+OBOBOBOB                            <option value="always">Always Available</option>
+OB                            <option value="limited">Limited Time</option>
+OBOBOB                        </select>
+OB                    </div>
                     <div class="form-actions">
                         <button type="submit" class="btn submit-btn">Add Item</button>
                         <button type="reset" class="btn reset-btn">Reset Form</button>
                     </div>
                 </form>
             </div>
-            
-            <div class="admin-links">
+            <div class="admin-links" style="margin-top: 32px;">
                 <a href="login.html" class="back-link">← Back to Login</a>
             </div>
         </div>
     </section>
 
+OBOBOBOB    <div class="success-modal" id="successModal">
+OB        <div class="success-modal-content">
+OBOBOBOB            <h3>Item Added!</h3>
+OB            <p>Your menu item was added successfully.</p>
+OB            <button id="closeSuccessModal">OK</button>
+OBOB        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>Amity Dabha</h2>
-                    <p>Amity's Chill zone</p>
+                    <h2>Amity Dhaba</h2>
+                    <p>Amity's Chill Zone</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
-                    <ul>
+OBOBOBOB                    <ul>
                         <li><a href="landing.html">Home</a></li>
-                        <li><a href="landing.html#menu">Menu</a></li>
-                        <li><a href="landing.html#about">About</a></li>
-                    </ul>
-                </div>
+OBOBOB                        <li><a href="landing.html#menu">Menu</a></li>
+OB                        <li><a href="landing.html#about">About</a></li>
+OBOB                    </ul>
+OB                </div>
             </div>
-            <div class="copyright">
+OB            <div class="copyright">
                 <p>&copy; 2025 Amity Dhaba. If u trouble the trouble, Trouble will trouble you.</p>
             </div>
         </div>
     </footer>
+    <script src="add_item.js"></script>
 </body>
 </html>
