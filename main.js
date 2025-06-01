@@ -4,6 +4,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const thankYouContent = thankYouMessage?.querySelector('.thank-you-content');
     let tokenNumber = 1;
 
+const loginForm = document.getElementById('loginForm');
+    const loginModal = document.getElementById('loginModal');
+    const closeLoginModal = document.getElementById('closeLoginModal');
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        loginModal.classList.add('active');
+        loginForm.reset();
+    });
+    closeLoginModal.addEventListener('click', function() {
+        loginModal.classList.remove('active');
+    });
+    loginModal.addEventListener('click', function(e) {
+        if (e.target === loginModal) {
+            loginModal.classList.remove('active');
+        }
+    });
+
     // Category icon change
     const categorySelect = document.getElementById('item-category');
     const categoryIcon = document.getElementById('categoryIcon');
@@ -62,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 thankYouMessage.style.opacity = '0';
                 thankYouMessage.style.pointerEvents = 'none';
             };
-        });
     }
 
 // Success modal logic
